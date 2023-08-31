@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Main.Machine
 {
@@ -49,7 +48,7 @@ namespace Main.Machine
             cancellationTokenSource = tokenSource;
         }
 
-        private void Async_Load (string path, CancellationToken canceltoken)
+        private void Async_Load(string path, CancellationToken canceltoken)
         {
             List<Tuple<string, string>> filepairs = new List<Tuple<string, string>>();
             Dictionary<string, string> pairmatcher = new Dictionary<string, string>();

@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.IO;
 
 namespace Main.View
 {
@@ -73,7 +69,7 @@ namespace Main.View
                     }
                 }
             }
-            
+
 
             richTextBox1.SelectAll();
             richTextBox1.SelectionFont = new Font("Cambria", 18f);

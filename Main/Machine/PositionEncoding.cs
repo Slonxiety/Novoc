@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Main.Machine
+﻿namespace Main.Machine
 {
     public static class PositionEncoding
     {
@@ -20,15 +14,15 @@ namespace Main.Machine
         void SetParagraph(ref byte[] data, int value);
         void SetLine(ref byte[] data, int value);
 
-        string GetDataString (byte[] data);
-        void SetDataString (ref byte[] data, string value);
+        string GetDataString(byte[] data);
+        void SetDataString(ref byte[] data, string value);
 
     }
     public class StandardEncoder : IPositionEncoder
     {
         int Csize = 2, Psize = 3, Lsize = 3; //maximum = 256 ^ size, i.e. 65536, 16777216
         public int ByteSize { get { return Csize + Psize + Lsize; } }
-     
+
         private int ByteToInt(byte[] data, int start, int size)
         {
             int ret = 0;
@@ -41,14 +35,14 @@ namespace Main.Machine
         }
         private void SetByte(ref byte[] data, int start, int size, int value)
         {
-            for (int i = start + size - 1; i >= start ; i--)
+            for (int i = start + size - 1; i >= start; i--)
             {
                 data[i] = (byte)(value % 256);
                 value /= 256;
             }
         }
-        
-        
+
+
         public int GetChapter(byte[] data)
         {
             return ByteToInt(data, 0, Csize);
@@ -79,7 +73,7 @@ namespace Main.Machine
             ulong ret = 0;
             for (int i = 0; i < ByteSize; i++)
                 ret = (ret << 8) + data[i];
-            
+
             return ret.ToString("x");
         }
         public void SetDataString(ref byte[] data, string value)

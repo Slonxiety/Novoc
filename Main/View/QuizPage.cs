@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Main.View
 {
@@ -25,7 +22,7 @@ namespace Main.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (valid_words.Count == 0)
+            if (valid_words.Count < 400)
                 Evaluate_All_Word();
             else
             {
@@ -58,8 +55,17 @@ namespace Main.View
         Random r = new Random();
         private void New_Word(int value)
         {
+            if (valid_words.Count < 400)
+            {
+                MessageBox.Show("Novels not enought. Required more language data to generate.");
+                return;
+            }
             if (value + 200 > valid_words.Count)
                 value = valid_words.Count - 200;
+            if (value < 200)
+                value = 200;
+            textBox1.Text = value.ToString();
+
             guess = valid_words[value - 200 + (dif = r.Next(400))].Item1;
             dif /= 10;
 
@@ -74,7 +80,7 @@ namespace Main.View
 
 
             int i = rep.Sum(x => x.Positions.Count());
-            
+
             bool[] select = new bool[i]; //let the hints be at most 20 sentences
             for (int k = 0; k < i; k++) select[k] = k < 20 ? true : false;
             select = select.OrderBy(x => r.Next()).ToArray();

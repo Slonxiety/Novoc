@@ -1,20 +1,13 @@
-﻿using System.Net;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Main
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -28,7 +21,7 @@ namespace Main
         //UI
         Button selected = null;
         Dictionary<Button, Form> lookup; //init in load
-        private void Button_Click (object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             //deselect
             if (selected != null)
@@ -58,7 +51,7 @@ namespace Main
         {
             //create dictionary
             dictionary = new DataTypes.Dictionary();
-            
+
             //initialize Interface
             lookup = new Dictionary<Button, Form>()
             {

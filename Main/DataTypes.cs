@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
 using System.IO;
+using System.Linq;
 
 namespace Main.DataTypes
 {
@@ -33,7 +30,7 @@ namespace Main.DataTypes
         IReadOnlyList<string> Words_List { get; }
         IReadOnlyList<IRecords> Records_List { get; }
         IRecords Get_Positions_Records(string volc);
-        IEnumerable<Tuple<Position, string>> Get_Reference_Sentences (IEnumerable<Position> positions);
+        IEnumerable<Tuple<Position, string>> Get_Reference_Sentences(IEnumerable<Position> positions);
     }
     public interface IRecords
     {
@@ -102,7 +99,7 @@ namespace Main.DataTypes
     {
         private List<Novel> novels_list = new List<Novel>();
         private List<string> words_list = new List<string>();
-        
+
         private Dictionary<string, List<Records>> Word_Positions { get; set; } = new Dictionary<string, List<Records>>();
 
 
@@ -145,7 +142,7 @@ namespace Main.DataTypes
                         case "W": //input sets of word position //W <word> (Chap-Para-Sent)
                             if (!novel.Words_Lookup.ContainsKey(para[1]))
                                 novel.Words_Lookup[para[1]] = new Records(para[1], novel);
-                            
+
                             for (int i = 2; i < para.Count(); i++)
                             {
                                 Position pos = new Position(para[i]);
@@ -158,7 +155,7 @@ namespace Main.DataTypes
                                 Word_Positions[para[1]] = new List<Records>();
                             }
                             Word_Positions[para[1]].Add(novel.Words_Lookup[para[1]]);
-                            
+
                             break;
 
                         case "F": //input sets of file hash
@@ -276,22 +273,6 @@ namespace Main.DataTypes
             words_list.Clear();
             Word_Positions.Clear();
         }
-
-        /*
-        public async static Task<INovel> CreateAsync(string filepath, IDictionary dictionary)
-        {
-            Task<INovel> t = CreateTask(filepath, dictionary);
-            INovel n = await t;
-            return n;
-        }
-        private static Task<INovel> CreateTask(string filepath, IDictionary dictionary)
-        {
-            var tsk = new TaskCompletionSource<INovel>();
-            INovel n = Create(filepath, dictionary);
-            tsk.SetResult(n);
-            return tsk.Task;
-        }
-        */
     }
 
     internal class Novel : INovel
@@ -369,17 +350,17 @@ namespace Main.DataTypes
             if (Words_Lookup.ContainsKey(volc)) return Words_Lookup[volc];
             else return null;
         }
-        
+
     }
 
     internal class Records : IRecords
     {
         public List<Position> positions;
-        
+
         public string Word { get; set; }
         public INovel Novel { get; set; }
         public IReadOnlyList<Position> Positions { get { return positions; } }
-        
+
         public Records(string word, INovel novel)
         {
             Word = word;
@@ -387,8 +368,6 @@ namespace Main.DataTypes
             positions = new List<Position>();
         }
     }
-
-
 
 
     public interface INovel_Entry
@@ -406,37 +385,4 @@ namespace Main.DataTypes
         public string filepath { get; set; }
         public string name { get; set; }
     }
-    /*
-    /// <summary>
-    /// This class works as a bridge between the file and the code.
-    /// </summary>
-    public class Opened_File
-    {
-        public string filepath { get; private set; }
-        public string filename { get; private set; }
-        public Novel_Entry entry { get; private set; }
-        public Machine.INovelReader novelReader { get; private set; }
-
-
-        //implemented flyweight pattern
-        static Dictionary<string, Opened_File> pool = new Dictionary<string, Opened_File>();
-        public static Opened_File Load(string filepath)
-        {
-            if (pool.ContainsKey(filepath))
-                return pool[filepath];
-            else
-                return pool[filepath] = new Opened_File(filepath);
-        }
-        private Opened_File(string filepath)
-        {
-            this.filepath = filepath;
-            this.filename = Path.GetFileNameWithoutExtension(filepath);
-
-            string ext = Path.GetExtension(filepath);
-            novelReader = Machine.NovelReaderFactory.Get(ext);
-
-            entry = novelReader.Read(filepath);
-        }
-    }
-    */
 }

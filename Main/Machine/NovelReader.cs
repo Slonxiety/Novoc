@@ -1,14 +1,12 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using Main.DataTypes;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using HtmlAgilityPack;
 using System.Xml;
-using System.IO.Compression;
-
-using Main.DataTypes;
 
 namespace Main.Machine
 {
@@ -51,7 +49,7 @@ namespace Main.Machine
             return entry;
         }
     }
-    
+
     class EpubReader : INovelReader
     {
         public INovel_Entry Read(string filepath)
@@ -70,7 +68,7 @@ namespace Main.Machine
             using (ZipArchive zip = ZipFile.OpenRead(filepath))
             {
                 var v = zip.Entries.First(x => x.Name == "content.opf");
-                
+
 
                 List<string> entries = new List<string>();
                 StreamReader stream = new StreamReader(v.Open(), Encoding.UTF8);
@@ -123,7 +121,7 @@ namespace Main.Machine
                     foreach (string s in GetTextsFromNode(doct.DocumentNode.ChildNodes))
                         sb.AppendLine(s + "\n");
 
-                    
+
 
                     entry.Titles.Add(doct.DocumentNode.SelectNodes("//title")[0].InnerText);
                     string rs = HtmlEntity.DeEntitize(sb.ToString());
@@ -131,12 +129,12 @@ namespace Main.Machine
                 }
             }
 
-            
+
             return entry;
         }
         private void Load_Epub()
         {
-            
+
         }
         private static ICollection<string> GetTextsFromNode(HtmlNodeCollection nodes)
         {
@@ -187,7 +185,7 @@ namespace Main.Machine
                 int chapter = 0, paragraph = 0;
 
                 StringBuilder sb = new StringBuilder();
-                
+
                 string s = "";
                 while ((s = sr.ReadLine()) != null)
                 {

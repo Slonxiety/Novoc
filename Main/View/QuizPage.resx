@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Instruction:
+
+    This page is used to generate cloze test.
+
+    Enter a number for difficulty on the upper textbox, and click the begin button. 
+
+    Questions will be randomly selected according to the difficulty and the novels imported. Input the correct answer in the textbox below and press enter to proceed.
+
+
+</value>
+  </data>
 </root>

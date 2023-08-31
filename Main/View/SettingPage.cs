@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Main.View
 {
@@ -128,8 +121,8 @@ namespace Main.View
                 loader.Load_Dictionary(textBox1.Text);
             else if (textBox1.Text != loader.FolderPath)
             {
-                string msg = "The folder has been changed.\nload files from the new folder?";
-                if (MessageBox.Show(msg, "Reload", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                string msg = "The folder has been changed.\nLoad files from the new folder?";
+                if (MessageBox.Show(msg, "Load", MessageBoxButtons.OKCancel, MessageBoxIcon.Information)
                     == DialogResult.Yes)
                 {
                     loader.Load_Dictionary(textBox1.Text);
@@ -141,5 +134,5 @@ namespace Main.View
 
         }
     }
-    
+
 }
