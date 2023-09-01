@@ -18,13 +18,13 @@ The user could also choose to select only the sentence containing the words, or 
 ## User Interface
 
 ### Main Page
-![螢幕擷取畫面 2023-09-01 115610](https://github.com/Slonxiety/Novoc/assets/30566694/004e6b24-8fba-4337-b0b1-139f1b088b79)
+![](image/main.png)
 
 ### Novel Page
-![螢幕擷取畫面 2023-09-01 115758](https://github.com/Slonxiety/Novoc/assets/30566694/ff5b530f-1906-4ca9-b6d2-add28b277f23)
+![](image/novel.png)
 
 ### Query Page
-![螢幕擷取畫面 2023-09-01 120000](https://github.com/Slonxiety/Novoc/assets/30566694/c6737815-1b33-4863-9129-e2959b7b36bf)
+![](image/search.png)
 
 ## Developer Notes
 This is my final project as a computer science class student. The code would not be that clean, as I'm still learning how to write clean code.\
