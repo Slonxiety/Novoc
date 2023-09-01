@@ -35,6 +35,7 @@ namespace Main.Machine
             Novel_Entry entry = new Novel_Entry()
             {
                 filepath = filepath,
+                name = Path.GetFileName(filepath),
             };
             using (StreamReader sr = new StreamReader(filepath))
             {
@@ -131,10 +132,6 @@ namespace Main.Machine
 
 
             return entry;
-        }
-        private void Load_Epub()
-        {
-
         }
         private static ICollection<string> GetTextsFromNode(HtmlNodeCollection nodes)
         {
