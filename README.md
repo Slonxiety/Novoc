@@ -27,6 +27,5 @@ The user could also choose to select only the sentence containing the words, or 
 ![螢幕擷取畫面 2023-09-01 120000](https://github.com/Slonxiety/Novoc/assets/30566694/c6737815-1b33-4863-9129-e2959b7b36bf)
 
 ## Developer Notes
-This is my final project as a computer science class student. The code would not be that clean, as I'm still learning how to write clean code.\\
-About the folder organization:\
+This is my final project as a computer science class student. The code would not be that clean, as I'm still learning how to write clean code.\
 The machine folder showcases the practice of dependency injections. The view folder contains all of the sub-window forms of the project. The DataTypes file contains all of the major data types in the project.
