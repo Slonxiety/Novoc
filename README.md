@@ -15,7 +15,7 @@ After importing the text files, two actions could be done on their respective pa
 
 The user could also choose to select only the sentence containing the words, or the whole paragraph.
 
-## User interface
+## User Interface
 
 ### Main Page
 ![螢幕擷取畫面 2023-09-01 115610](https://github.com/Slonxiety/Novoc/assets/30566694/004e6b24-8fba-4337-b0b1-139f1b088b79)
@@ -26,3 +26,7 @@ The user could also choose to select only the sentence containing the words, or 
 ### Query Page
 ![螢幕擷取畫面 2023-09-01 120000](https://github.com/Slonxiety/Novoc/assets/30566694/c6737815-1b33-4863-9129-e2959b7b36bf)
 
+## Developer Notes
+This is my final project as a computer science class student. The code would not be that clean, as I'm still learning how to write clean code.\\
+About the folder organization:\
+The machine folder showcases the practice of dependency injections. The view folder contains all of the sub-window forms of the project. The DataTypes file contains all of the major data types in the project.
